@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitglieder - Kingdom of Timbo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Kingdom of Timbo">
+            <span>Kingdom of Timbo</span>
+        </div>
+        <nav>
+            <a href="index.html">Startseite</a>
+            <a href="join.html">Mitglied werden</a>
+            <a href="members.php">Mitglieder</a>
+            <a href="manifest.html">Manifest</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Mitgliederliste</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Profession</th>
+                    <th>Institution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                // Mitgliederliste aus der Datei lesen
+                if (($file = fopen("members.txt", "r")) !== false) {
+                    while (($line = fgetcsv($file)) !== false) {
+                        echo "<tr>";
+                        echo "<td>{$line[0]}</td>"; // Name oder "Anonym"
+                        echo "<td>{$line[1]}</td>"; // Profession
+                        echo "<td>{$line[2]}</td>"; // Institution
+                        echo "</tr>";
+                    }
+                    fclose($file);
+                } else {
+                    echo "<tr><td colspan='3'>Keine Mitglieder gefunden.</td></tr>";
+                }
+                ?>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Kingdom of Timbo | <a href="mailto:kontakt@kingdomoftimbo.de">Kontakt</a></p>
+    </footer>
+</body>
+</html>

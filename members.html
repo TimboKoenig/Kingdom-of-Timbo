@@ -32,19 +32,15 @@
             </thead>
             <tbody>
                 <?php
-                // Mitgliederliste aus der Datei lesen
-                if (($file = fopen("members.txt", "r")) !== false) {
-                    while (($line = fgetcsv($file)) !== false) {
-                        echo "<tr>";
-                        echo "<td>{$line[0]}</td>"; // Name oder "Anonym"
-                        echo "<td>{$line[1]}</td>"; // Profession
-                        echo "<td>{$line[2]}</td>"; // Institution
-                        echo "</tr>";
-                    }
-                    fclose($file);
-                } else {
-                    echo "<tr><td colspan='3'>Keine Mitglieder gefunden.</td></tr>";
+                $file = fopen("members.txt", "r");
+                while (($line = fgetcsv($file)) !== false) {
+                    echo "<tr>";
+                    echo "<td>{$line[0]}</td>"; 
+                    echo "<td>{$line[1]}</td>"; 
+                    echo "<td>{$line[2]}</td>"; 
+                    echo "</tr>";
                 }
+                fclose($file);
                 ?>
             </tbody>
         </table>

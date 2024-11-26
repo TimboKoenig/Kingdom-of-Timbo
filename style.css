@@ -1,57 +1,143 @@
+/* Allgemeines Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
+/* Header */
 header {
-    background-color: #333;
+    background-color: #004C97; /* Dunkelblau */
     color: white;
-    padding: 10px 0;
-    text-align: center;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+header .logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 nav a {
     color: white;
-    margin: 0 15px;
     text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
+nav a:hover {
+    color: #FFD200; /* Gelber Akzent */
+}
+
+/* Main Content */
 main {
+    max-width: 800px;
+    margin: 20px auto;
     padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2 {
-    color: #333;
-}
-
+/* Formulare */
 form {
     display: flex;
     flex-direction: column;
+    gap: 15px;
 }
 
-form label {
-    margin: 5px 0;
+label {
+    font-weight: bold;
 }
 
-form input, form button {
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
     padding: 10px;
-    margin: 5px 0;
-    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
 }
 
 button {
-    background-color: #333;
+    padding: 10px 20px;
+    background-color: #D52B1E; /* Rot */
     color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-footer {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
+button:hover {
+    background-color: #B2221A;
+}
+
+/* Tabellen für die Mitgliederseite */
+table {
+    width: 100%;
+    border-collapse: collapse;
     margin-top: 20px;
+}
+
+table th,
+table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color: #004C97;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #004C97;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: #FFD200; /* Gelb */
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
